@@ -22,6 +22,22 @@ document.getElementById("lang-toggle").addEventListener("click", () => {
 });
 applyLang();
 
+/* ---------- Tema claro/oscuro ---------- */
+const isDark = () => document.documentElement.dataset.theme === "dark";
+const themeBtn = document.getElementById("theme-toggle");
+
+function applyThemeBtn() {
+  themeBtn.textContent = isDark() ? "☀" : "☾";
+}
+
+themeBtn.addEventListener("click", () => {
+  const next = isDark() ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("cv-theme", next);
+  applyThemeBtn();
+});
+applyThemeBtn();
+
 /* ---------- Animaciones ---------- */
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -185,7 +201,7 @@ function startNet(canvas, opts) {
         ctx.strokeStyle = opts.line(0.9 * (1 - dm / 160));
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
       }
-      ctx.fillStyle = opts.dot;
+      ctx.fillStyle = typeof opts.dot === "function" ? opts.dot() : opts.dot;
       ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 7); ctx.fill();
     }
     raf = requestAnimationFrame(step);
@@ -220,8 +236,8 @@ if (!reduced) {
   if (netRoad) startNet(netRoad, {
     max: 55,
     link: 110,
-    dot: "rgba(46, 139, 106, 0.5)",
-    line: (a) => `rgba(30, 92, 70, ${0.2 * a})`,
+    dot: () => isDark() ? "rgba(143, 212, 178, 0.55)" : "rgba(46, 139, 106, 0.5)",
+    line: (a) => isDark() ? `rgba(143, 212, 178, ${0.22 * a})` : `rgba(30, 92, 70, ${0.2 * a})`,
     bands: (w) => {
       // bandas laterales: el espacio fuera de la cancha de tenis
       const courtW = Math.min(road ? road.offsetWidth : w * 0.92, 920);
