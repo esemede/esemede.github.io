@@ -1,3 +1,8 @@
+/* ============================================================
+   CV Sebastián Moreno — "editorial alpino"
+   Verde bosque + marfil · Fraunces + Inter
+   ============================================================ */
+
 :root {
   --green-deep: #0b3d2e;
   --green-ink:  #122e26;
@@ -10,10 +15,612 @@
   --ink-soft:   #4a5550;
   --font-display: "Fraunces", serif;
   --font-body: "Inter", sans-serif;
+  --shadow-card: 0 6px 24px rgba(11, 61, 46, 0.10), 0 1px 3px rgba(11, 61, 46, 0.08);
+  --ridge-h: clamp(48px, 8vw, 110px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: var(--font-body); }
 
-.sec-dark { background: var(--green-deep); color: var(--ivory); min-height: 20vh; }
-.sec-light { background: var(--ivory); color: var(--ink); min-height: 20vh; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background: var(--green-deep);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+/* ---------- Fondos de sección ---------- */
+
+.sec-dark {
+  background:
+    /* curvas de nivel sutiles, guiño topográfico */
+    repeating-radial-gradient(ellipse 1200px 600px at 80% -10%,
+      transparent 0 56px, rgba(245, 241, 232, 0.025) 56px 58px),
+    linear-gradient(180deg, var(--green-deep), var(--green-ink));
+  color: var(--ivory);
+}
+
+.sec-light {
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+/* Separadores cordillera: la silueta toma el color de la sección anterior */
+#resumen, #skills, #educacion, #descarga { position: relative; }
+
+#resumen::before, #skills::before, #educacion::before, #descarga::before {
+  content: "";
+  display: block;
+  height: var(--ridge-h);
+  margin-bottom: clamp(8px, 2vw, 24px);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* ridge verde sobre marfil (de hero→resumen, logros→educacion) */
+#resumen::before, #educacion::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,18 L1230,86 L1040,38 L840,96 L630,30 L430,88 L240,44 L0,98 Z' fill='%23122e26'/%3E%3C/svg%3E");
+}
+
+/* ridge marfil sobre verde (de roadmap→skills, vida→descarga) */
+#skills::before, #descarga::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 110' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,18 L1230,86 L1040,38 L840,96 L630,30 L430,88 L240,44 L0,98 Z' fill='%23f5f1e8'/%3E%3C/svg%3E");
+}
+
+/* ---------- Tipografía ---------- */
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; }
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5em;
+}
+
+.sec-light h2 { color: var(--green-deep); }
+
+.section-sub {
+  margin: -0.6em 0 2.2em;
+  font-size: 1.05rem;
+  opacity: 0.78;
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.lead { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--ink-soft); max-width: 62ch; }
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: min(1080px, 92vw);
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+}
+
+.container.narrow { width: min(780px, 92vw); }
+
+section { overflow-x: clip; }
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.65rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(18, 46, 38, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(204, 229, 49, 0.14);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--ivory);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-dot { color: var(--ball); }
+
+.nav-links {
+  display: flex;
+  gap: clamp(0.8rem, 2vw, 1.6rem);
+  margin-inline: auto;
+}
+
+.nav-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  opacity: 0.85;
+  padding: 0.25rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a:focus-visible { opacity: 1; border-bottom-color: var(--ball); }
+
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+.nav-cta {
+  background: var(--ball);
+  color: var(--green-ink);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.nav-cta:hover, .nav-cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(204, 229, 49, 0.35);
+}
+
+#lang-toggle {
+  background: transparent;
+  color: var(--ivory);
+  border: 1.5px solid var(--emerald);
+  border-radius: 999px;
+  font: 700 0.82rem var(--font-body);
+  padding: 0.42rem 0.85rem;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: background 0.2s, color 0.2s;
+}
+
+#lang-toggle:hover, #lang-toggle:focus-visible { background: var(--emerald); }
+
+/* ---------- Hero ---------- */
+
+#hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 900px 520px at 50% -8%, rgba(46, 139, 106, 0.35), transparent 70%),
+    repeating-radial-gradient(ellipse 1200px 600px at 80% -10%,
+      transparent 0 56px, rgba(245, 241, 232, 0.03) 56px 58px),
+    linear-gradient(180deg, var(--green-ink) 0%, var(--green-deep) 100%);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  padding: 6rem 1.25rem 28vh;
+}
+
+.hero-kicker {
+  color: var(--ball);
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 9vw, 6.2rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ivory);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero-tagline {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  max-width: 46ch;
+  margin: 1.2rem auto 0;
+  opacity: 0.88;
+}
+
+.hero-scroll {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-arrow { font-size: 1.1rem; animation: bob 1.8s ease-in-out infinite; }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* Cordillera en 3 capas */
+.mountains { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; }
+
+.mountains svg {
+  position: absolute;
+  inset: auto 0 0 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.m-back  path { fill: #16493a; opacity: 0.65; }
+.m-mid   path { fill: var(--green-mid); opacity: 0.8; }
+.m-front path { fill: var(--green-ink); }
+
+/* ---------- Roadmap ---------- */
+
+#roadmap .container { padding-top: 1rem; }
+
+.road { position: relative; padding: 2rem 0 4rem; }
+
+.road-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 0;
+  border-left: 3px dashed rgba(30, 92, 70, 0.35);
+  transform: translateX(-50%);
+}
+
+.milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.milestone { position: relative; width: 50%; }
+
+.milestone.side-l { align-self: flex-start; padding-right: clamp(2rem, 5vw, 4rem); }
+.milestone.side-r { align-self: flex-end; padding-left: clamp(2rem, 5vw, 4rem); }
+
+/* nodo en la línea central */
+.milestone::after {
+  content: "";
+  position: absolute;
+  top: 2.2rem;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 3.5px solid var(--emerald);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.milestone.side-l::after { right: -8.5px; }
+.milestone.side-r::after { left: -8.5px; }
+
+.milestone.active::after {
+  background: var(--ball);
+  border-color: var(--green-deep);
+  transform: scale(1.35);
+}
+
+.card {
+  background: var(--ivory-card);
+  border-radius: 14px;
+  border-left: 4px solid var(--emerald);
+  box-shadow: var(--shadow-card);
+  padding: 1.4rem 1.6rem;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.milestone.active .card {
+  border-left-color: var(--ball);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(11, 61, 46, 0.16), 0 2px 6px rgba(11, 61, 46, 0.1);
+}
+
+.period {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin: 0 0 0.35rem;
+}
+
+.company {
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--green-deep);
+}
+
+.role {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0.3rem 0 0.6rem;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--ball);
+  color: var(--green-ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.18rem 0.6rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.card ul { margin: 0; padding-left: 1.1rem; }
+.card li { margin: 0.4rem 0; font-size: 0.94rem; color: var(--ink-soft); }
+.card li strong { color: var(--green-deep); }
+.card li.award { color: var(--green-deep); font-weight: 500; list-style: none; margin-left: -1.1rem; }
+
+.card-compact { opacity: 0.92; }
+
+/* Pelota de tenis */
+.ball {
+  position: absolute;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 8px rgba(11, 61, 46, 0.28));
+  will-change: transform;
+}
+
+.ball circle { fill: var(--ball); }
+.ball .seam { fill: none; stroke: #fffdf7; stroke-width: 2; }
+
+/* ---------- Skills ---------- */
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.8rem 2.5rem;
+}
+
+.skill-group h3 {
+  font-size: 1.05rem;
+  color: var(--ball);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.chip {
+  border: 1.5px solid var(--green-mid);
+  background: rgba(30, 92, 70, 0.25);
+  color: var(--ivory);
+  font-size: 0.84rem;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--ball);
+  background: rgba(46, 139, 106, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ---------- Logros ---------- */
+
+#logros .container { padding-top: 0; }
+
+.award-grid {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.award-card {
+  background: rgba(245, 241, 232, 0.06);
+  border: 1px solid rgba(204, 229, 49, 0.22);
+  border-radius: 14px;
+  padding: 1.3rem 1.4rem;
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+}
+
+.award-card:hover {
+  border-color: var(--ball);
+  background: rgba(245, 241, 232, 0.1);
+  transform: translateY(-3px);
+}
+
+.award-icon { font-size: 1.5rem; }
+
+.award-card h3 { font-size: 1.05rem; margin: 0.5rem 0 0.2rem; color: var(--ivory); }
+.award-card p { margin: 0; font-size: 0.86rem; color: var(--ball); font-weight: 600; }
+
+/* ---------- Educación ---------- */
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.4rem;
+}
+
+.edu-card { border-left-color: var(--green-deep); }
+
+.lang-list { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+.lang-list li { padding: 0.35rem 0; color: var(--ink-soft); border-bottom: 1px dashed rgba(30, 92, 70, 0.25); }
+.lang-list li:last-child { border-bottom: none; }
+
+/* ---------- Vida ---------- */
+
+#vida .container { padding-top: 0; }
+
+.vida-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.vida-item {
+  background: var(--ivory-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-card);
+  padding: 1.8rem 1.6rem;
+  text-align: center;
+  transition: transform 0.25s;
+}
+
+.vida-item:hover { transform: translateY(-4px); }
+
+.vida-icon {
+  width: 48px; height: 48px;
+  margin: 0 auto 0.9rem;
+  color: var(--emerald);
+}
+
+.vida-item h3 { color: var(--green-deep); font-size: 1.2rem; margin-bottom: 0.35rem; }
+.vida-item p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+
+/* ---------- Descarga ---------- */
+
+#descarga .container { text-align: center; }
+
+#gate-form {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+#gate-form input {
+  font: 500 1rem var(--font-body);
+  color: var(--green-ink);
+  background: var(--ivory-card);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 0.75rem 1.3rem;
+  width: min(340px, 80vw);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#gate-form input:focus-visible { border-color: var(--ball); box-shadow: 0 0 0 4px rgba(204, 229, 49, 0.18); }
+
+#gate-form button {
+  font: 700 1rem var(--font-body);
+  background: var(--ball);
+  color: var(--green-ink);
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+
+#gate-form button:hover:not(:disabled), #gate-form button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(204, 229, 49, 0.35);
+}
+
+#gate-form button:disabled { opacity: 0.55; cursor: wait; }
+
+.gate-error {
+  color: #ffb4a6;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.gate-success { font-weight: 600; margin: 1.6rem 0 1rem; color: var(--ball); }
+
+.dl-buttons { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+
+.dl-btn {
+  display: inline-block;
+  background: var(--ivory-card);
+  color: var(--green-deep);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--ball);
+  transition: transform 0.15s, background 0.2s;
+}
+
+.dl-btn:hover, .dl-btn:focus-visible { transform: translateY(-2px); background: var(--ball); }
+
+/* ---------- Footer ---------- */
+
+#contacto { border-top: 1px solid rgba(204, 229, 49, 0.14); background: var(--green-ink); }
+
+.footer-inner { padding: 2.5rem 0 3rem; text-align: center; }
+
+.footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+
+.footer-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1.5px solid var(--emerald);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.footer-links a:hover, .footer-links a:focus-visible { color: var(--ball); border-bottom-color: var(--ball); }
+
+.footer-note {
+  margin-top: 1.4rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.6;
+}
+
+/* ---------- Focus global ---------- */
+
+:focus-visible { outline: 2.5px solid var(--ball); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+  .nav-actions { margin-left: auto; }
+}
+
+@media (max-width: 720px) {
+  .road-line { left: 16px; }
+
+  .milestone,
+  .milestone.side-l,
+  .milestone.side-r {
+    width: 100%;
+    align-self: stretch;
+    padding: 0 0 0 2.6rem;
+  }
+
+  .milestone.side-l::after, .milestone.side-r::after { left: 9.5px; right: auto; }
+
+  .hero-inner { padding-bottom: 34vh; }
+  .mountains { height: 34vh; }
+
+  .edu-grid { grid-template-columns: 1fr; }
+}
