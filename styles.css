@@ -1,0 +1,19 @@
+:root {
+  --green-deep: #0b3d2e;
+  --green-ink:  #122e26;
+  --green-mid:  #1e5c46;
+  --emerald:    #2e8b6a;
+  --ball:       #cce531;
+  --ivory:      #f5f1e8;
+  --ivory-card: #fffdf7;
+  --ink:        #1c2420;
+  --ink-soft:   #4a5550;
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-body); }
+
+.sec-dark { background: var(--green-deep); color: var(--ivory); min-height: 20vh; }
+.sec-light { background: var(--ivory); color: var(--ink); min-height: 20vh; }
