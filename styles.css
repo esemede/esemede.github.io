@@ -269,8 +269,23 @@ section { overflow-x: clip; }
   50% { transform: translateY(7px); }
 }
 
+/* Red de nodos (canvas) */
+.net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#hero .net { z-index: 1; }
+
+#roadmap { position: relative; }
+#roadmap .net { z-index: 0; }
+#roadmap .container { position: relative; z-index: 1; }
+
 /* Cordillera en 3 capas */
-.mountains { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; }
+.mountains { position: absolute; inset: auto 0 0 0; height: 46vh; pointer-events: none; z-index: 2; }
 
 .mountains svg {
   position: absolute;

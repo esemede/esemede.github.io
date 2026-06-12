@@ -122,6 +122,115 @@ if (!reduced) {
   onScroll();
 }
 
+/* ---------- Redes de nodos (canvas) ---------- */
+/* Partículas que derivan, se enlazan entre sí y reaccionan al cursor.
+   `bands()` limita dónde viven (p. ej., fuera de la cancha del roadmap). */
+function startNet(canvas, opts) {
+  const ctx = canvas.getContext("2d");
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const section = canvas.parentElement;
+  let W = 0, H = 0, parts = [], running = false, raf = 0;
+  const mouse = { x: -1e4, y: -1e4 };
+  const LINK = opts.link || 120;
+
+  function resize() {
+    W = section.offsetWidth;
+    H = section.offsetHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    parts = [];
+    if (W < 720) return; // en móvil no hay red: ahorro de batería
+    for (const [x0, x1] of opts.bands(W)) {
+      if (x1 - x0 < 70) continue;
+      const n = Math.min(opts.max, Math.round(((x1 - x0) * H) / 16000));
+      for (let i = 0; i < n; i++) {
+        parts.push({
+          x: x0 + Math.random() * (x1 - x0), y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.45, vy: (Math.random() - 0.5) * 0.45,
+          x0, x1, r: 1.3 + Math.random() * 1.2,
+        });
+      }
+    }
+  }
+
+  function step() {
+    if (!running) return;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of parts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < p.x0 || p.x > p.x1) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      const dxm = p.x - mouse.x, dym = p.y - mouse.y;
+      const dm = Math.hypot(dxm, dym);
+      if (dm < 150 && dm > 0.1) { // el cursor empuja suavemente los nodos
+        p.x += (dxm / dm) * 0.6;
+        p.y += (dym / dm) * 0.6;
+      }
+    }
+    ctx.lineWidth = 1;
+    for (let i = 0; i < parts.length; i++) {
+      const a = parts[i];
+      for (let j = i + 1; j < parts.length; j++) {
+        const b = parts[j];
+        if (a.x0 !== b.x0) continue; // no se enlaza a través de la cancha
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < LINK) {
+          ctx.strokeStyle = opts.line(1 - d / LINK);
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+      if (dm < 160) {
+        ctx.strokeStyle = opts.line(0.9 * (1 - dm / 160));
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+      }
+      ctx.fillStyle = opts.dot;
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 7); ctx.fill();
+    }
+    raf = requestAnimationFrame(step);
+  }
+
+  section.addEventListener("mousemove", (e) => {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  });
+  section.addEventListener("mouseleave", () => { mouse.x = mouse.y = -1e4; });
+
+  new IntersectionObserver((es) => es.forEach((e) => {
+    if (e.isIntersecting && !running) { running = true; step(); }
+    else if (!e.isIntersecting) { running = false; cancelAnimationFrame(raf); }
+  })).observe(section);
+
+  new ResizeObserver(resize).observe(section);
+  resize();
+}
+
+if (!reduced) {
+  const netHero = document.getElementById("net-hero");
+  if (netHero) startNet(netHero, {
+    max: 70,
+    link: 130,
+    dot: "rgba(204, 229, 49, 0.55)",
+    line: (a) => `rgba(46, 139, 106, ${0.38 * a})`,
+    bands: (w) => [[0, w]],
+  });
+
+  const netRoad = document.getElementById("net-road");
+  if (netRoad) startNet(netRoad, {
+    max: 55,
+    link: 110,
+    dot: "rgba(46, 139, 106, 0.5)",
+    line: (a) => `rgba(30, 92, 70, ${0.2 * a})`,
+    bands: (w) => {
+      // bandas laterales: el espacio fuera de la cancha de tenis
+      const courtW = Math.min(road ? road.offsetWidth : w * 0.92, 920);
+      const gap = (w - courtW) / 2 - 24;
+      return [[16, gap], [w - gap, w - 16]];
+    },
+  });
+}
+
 /* ---------- Gate de email (Formspree) ---------- */
 const FORMSPREE_ID = "xjgdaaag";
 const form = document.getElementById("gate-form");
