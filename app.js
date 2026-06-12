@@ -99,3 +99,38 @@ if (!reduced) {
   addEventListener("resize", onScroll, { passive: true });
   onScroll();
 }
+
+/* ---------- Gate de email (Formspree) ---------- */
+const FORMSPREE_ID = "TU_FORM_ID"; // ver README: reemplazar al crear el form en formspree.io
+const form = document.getElementById("gate-form");
+const result = document.getElementById("gate-result");
+const errBox = document.getElementById("gate-error");
+
+function unlock() {
+  form.hidden = true;
+  errBox.hidden = true;
+  result.hidden = false;
+  localStorage.setItem("cv-unlocked", "1");
+}
+if (localStorage.getItem("cv-unlocked")) unlock();
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!form.reportValidity()) return;
+  errBox.hidden = true;
+  const btn = form.querySelector("button");
+  btn.disabled = true;
+  try {
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: new FormData(form),
+    });
+    if (!res.ok) throw new Error(res.status);
+    unlock();
+  } catch {
+    errBox.hidden = false;
+  } finally {
+    btn.disabled = false;
+  }
+});
