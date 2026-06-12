@@ -28,16 +28,11 @@ en `i18n.js`, actualiza también ahí y regenera.
 ## Configurar Formspree (captura de email)
 
 La descarga del PDF se desbloquea cuando el visitante deja su correo. El envío
-usa [Formspree](https://formspree.io) (plan gratis: 50 envíos/mes):
+usa [Formspree](https://formspree.io) (plan gratis: 50 envíos/mes), ya
+configurado con el form `xjgdaaag` (cuenta de domoedse@gmail.com); cada envío
+llega a ese correo y queda en el dashboard de Formspree.
 
-1. Crear cuenta en formspree.io con `domoedse@gmail.com`.
-2. Crear un nuevo form ("New form") y copiar su ID (la parte final de
-   `https://formspree.io/f/XXXXXXXX`).
-3. Reemplazar el valor de la constante `FORMSPREE_ID` en `app.js`.
-4. Commit y push.
-
-Mientras el ID sea el placeholder, el formulario mostrará el mensaje de error
-al enviar (el resto del sitio funciona normal).
+Para cambiar de formulario, reemplazar la constante `FORMSPREE_ID` en `app.js`.
 
 ## Estructura
 

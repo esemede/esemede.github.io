@@ -123,7 +123,7 @@ if (!reduced) {
 }
 
 /* ---------- Gate de email (Formspree) ---------- */
-const FORMSPREE_ID = "TU_FORM_ID"; // ver README: reemplazar al crear el form en formspree.io
+const FORMSPREE_ID = "xjgdaaag";
 const form = document.getElementById("gate-form");
 const result = document.getElementById("gate-result");
 const errBox = document.getElementById("gate-error");
