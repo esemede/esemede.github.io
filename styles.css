@@ -35,6 +35,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection { background: var(--ball); color: var(--green-ink); }
+
 img, svg { display: block; max-width: 100%; }
 
 /* ---------- Fondos de sección ---------- */
@@ -85,6 +87,17 @@ h2 {
   font-weight: 700;
   letter-spacing: -0.01em;
   margin-bottom: 0.5em;
+}
+
+/* kicker editorial sobre cada título de sección */
+h2::before {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ball);
+  margin-bottom: 0.65rem;
 }
 
 .sec-light h2 { color: var(--green-deep); }
@@ -155,7 +168,8 @@ section { overflow-x: clip; }
   transition: opacity 0.2s, border-color 0.2s;
 }
 
-.nav-links a:hover, .nav-links a:focus-visible { opacity: 1; border-bottom-color: var(--ball); }
+.nav-links a:hover, .nav-links a:focus-visible,
+.nav-links a.active { opacity: 1; border-bottom-color: var(--ball); }
 
 .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
 
@@ -276,6 +290,34 @@ section { overflow-x: clip; }
 
 .road { position: relative; padding: 2rem 0 4rem; }
 
+/* Cancha de tenis de fondo: la experiencia se ve en cancha */
+.court {
+  position: absolute;
+  inset: -90px 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.court svg {
+  width: min(100%, 920px);
+  height: 100%;
+  fill: rgba(46, 139, 106, 0.045);
+}
+
+.court line, .court rect {
+  stroke: rgba(30, 92, 70, 0.16);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.court .net {
+  stroke: rgba(30, 92, 70, 0.28);
+  stroke-width: 3;
+  stroke-dasharray: 7 6;
+}
+
 .road-line {
   position: absolute;
   top: 0; bottom: 0;
@@ -322,6 +364,7 @@ section { overflow-x: clip; }
 
 .card {
   background: var(--ivory-card);
+  border: 1px solid rgba(11, 61, 46, 0.07);
   border-radius: 14px;
   border-left: 4px solid var(--emerald);
   box-shadow: var(--shadow-card);
@@ -504,6 +547,8 @@ section { overflow-x: clip; }
 /* ---------- Descarga ---------- */
 
 #descarga .container { text-align: center; }
+
+#descarga h2::before { margin-inline: auto; }
 
 #gate-form {
   display: flex;

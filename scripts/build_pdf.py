@@ -35,7 +35,7 @@ RIGHT_X = MARGIN + LEFT_W + 18
 DATA = {
     "es": {
         "name": "Sebastián Moreno",
-        "title": "Líder Técnico · Backend & Cloud Developer",
+        "title": "Líder Técnico · Frontend, Backend & Cloud Developer",
         "qr_caption": "Versión interactiva",
         "summary_title": "Resumen",
         "summary": (
@@ -43,7 +43,7 @@ DATA = {
             "entre la energía y el consumo masivo. Hoy, Líder Técnico del optimizador de carga T2 "
             "y principal developer de T1 en KOANDINA (Coca-Cola Andina): soluciones de optimización "
             "logística sobre arquitectura serverless en AWS. Experto en Python, datos SQL, CI/CD y "
-            "patrones de diseño."
+            "patrones de diseño. Integro IA aplicada en mis productos: MCPs, RAG y fine-tuning."
         ),
         "exp_title": "Experiencia",
         "jobs": [
@@ -82,6 +82,7 @@ DATA = {
             ("Cloud", "AWS (Lambda, Step Functions, API Gateway, RDS, DynamoDB, Cognito) · GCP"),
             ("Backend", "Python · FastAPI · Node.js"),
             ("Frontend", "React · HTML/CSS · JS"),
+            ("IA aplicada", "MCP · RAG · Fine-Tuning · LLM APIs · AI Agents"),
             ("Datos", "SQL · PostgreSQL · MySQL · DynamoDB · Pandas · PySpark"),
             ("DevOps", "CI/CD · Git · Bash · Linux"),
             ("Blockchain & IoT", "Smart Contracts · EVM · MQTT · ESP32"),
@@ -102,7 +103,7 @@ DATA = {
     },
     "en": {
         "name": "Sebastián Moreno",
-        "title": "Tech Lead · Backend & Cloud Developer",
+        "title": "Tech Lead · Frontend, Backend & Cloud Developer",
         "qr_caption": "Interactive version",
         "summary_title": "Summary",
         "summary": (
@@ -110,7 +111,7 @@ DATA = {
             "energy and consumer-goods industries. Currently Tech Lead of the T2 load optimizer and "
             "principal developer of T1 at KOANDINA (Coca-Cola Andina): logistics-optimization "
             "solutions on AWS serverless architecture. Expert in Python, SQL data, CI/CD and design "
-            "patterns."
+            "patterns. I integrate applied AI into my products: MCPs, RAG and fine-tuning."
         ),
         "exp_title": "Experience",
         "jobs": [
@@ -149,6 +150,7 @@ DATA = {
             ("Cloud", "AWS (Lambda, Step Functions, API Gateway, RDS, DynamoDB, Cognito) · GCP"),
             ("Backend", "Python · FastAPI · Node.js"),
             ("Frontend", "React · HTML/CSS · JS"),
+            ("Applied AI", "MCP · RAG · Fine-Tuning · LLM APIs · AI Agents"),
             ("Data", "SQL · PostgreSQL · MySQL · DynamoDB · Pandas · PySpark"),
             ("DevOps", "CI/CD · Git · Bash · Linux"),
             ("Blockchain & IoT", "Smart Contracts · EVM · MQTT · ESP32"),

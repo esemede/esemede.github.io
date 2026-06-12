@@ -35,6 +35,24 @@ document.querySelectorAll(".milestone, .reveal").forEach((el) => {
   else io.observe(el);
 });
 
+/* Scroll-spy del nav */
+const navLinks = [...document.querySelectorAll(".nav-links a")];
+const spy = new IntersectionObserver(
+  (entries) => entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    const id = "#" + e.target.id;
+    navLinks.forEach((a) => a.classList.toggle(
+      "active",
+      a.getAttribute("href") === id ||
+        (id === "#vida" && a.getAttribute("href") === "#educacion") ||
+        (id === "#logros" && a.getAttribute("href") === "#skills")
+    ));
+  }),
+  { rootMargin: "-40% 0px -55% 0px" }
+);
+["resumen", "roadmap", "skills", "logros", "educacion", "vida", "contacto"]
+  .forEach((id) => spy.observe(document.getElementById(id)));
+
 /* Parallax del hero */
 const mBack = document.querySelector(".m-back");
 const mMid = document.querySelector(".m-mid");
@@ -42,6 +60,7 @@ const mFront = document.querySelector(".m-front");
 
 /* Pelota de tenis ligada al scroll del roadmap */
 const road = document.querySelector("#roadmap .road");
+const court = document.querySelector(".court");
 const ball = document.querySelector(".ball");
 const stones = [...document.querySelectorAll(".milestone")];
 const isMobile = matchMedia("(max-width: 720px)");
@@ -52,6 +71,9 @@ function updateBall() {
   const anchor = innerHeight * 0.45; // punto de lectura en el viewport
   const total = r.height - 160;
   const p = Math.min(1, Math.max(0, (anchor - r.top) / total));
+
+  // la cancha se desplaza más lento que el scroll (parallax de fondo)
+  if (court) court.style.transform = `translateY(${(p - 0.5) * 130}px)`;
 
   const nSeg = stones.length - 1;
   const segF = p * nSeg;

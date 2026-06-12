@@ -8,13 +8,13 @@ window.I18N = {
     "nav.contacto": "Contacto",
     "nav.cta": "Descargar CV",
 
-    "hero.kicker": "Líder Técnico · Backend & Cloud Developer",
+    "hero.kicker": "Líder Técnico · Frontend, Backend & Cloud Developer",
     "hero.name": "Sebastián Moreno",
     "hero.tagline": "Construyo y lidero productos digitales de optimización logística sobre AWS.",
     "hero.scroll": "Desliza para recorrer mi camino",
 
     "resumen.title": "Resumen",
-    "resumen.body": "Ingeniero Mecánico Industrial (Universidad Técnica Federico Santa María) con más de 10 años construyendo software entre la energía y el consumo masivo. Hoy soy Líder Técnico del optimizador de carga T2 y principal developer de T1 en KOANDINA (Coca-Cola Andina), donde diseño y lidero soluciones de optimización logística sobre arquitectura serverless en AWS. Experto en Python, modelamiento y consulta de datos SQL, CI/CD y patrones de diseño; mi sello es el código con buenas prácticas, el feedback honesto y la mejora continua de procesos y experiencia de usuario.",
+    "resumen.body": "Ingeniero Mecánico Industrial (Universidad Técnica Federico Santa María) con más de 10 años construyendo software entre la energía y el consumo masivo. Hoy soy Líder Técnico del optimizador de carga T2 y principal developer de T1 en KOANDINA (Coca-Cola Andina), donde diseño y lidero soluciones de optimización logística sobre arquitectura serverless en AWS. Experto en Python, modelamiento y consulta de datos SQL, CI/CD y patrones de diseño; mi sello es el código con buenas prácticas, el feedback honesto y la mejora continua de procesos y experiencia de usuario. Integro IA aplicada en mis productos y flujos de trabajo: MCPs, RAG y fine-tuning.",
 
     "roadmap.title": "Mi roadmap",
     "roadmap.subtitle": "Cada bote, una etapa.",
@@ -71,6 +71,7 @@ window.I18N = {
     "skills.cloud": "Cloud",
     "skills.backend": "Backend",
     "skills.frontend": "Frontend",
+    "skills.ai": "IA aplicada",
     "skills.data": "Datos",
     "skills.devops": "DevOps",
     "skills.other": "Blockchain & IoT",
@@ -100,6 +101,8 @@ window.I18N = {
     "vida.montana.desc": "Subir cerros enseña a iterar: un paso firme a la vez.",
     "vida.familia.name": "Familia",
     "vida.familia.desc": "El proyecto de largo plazo que más me importa.",
+    "vida.tech.name": "Tecnología",
+    "vida.tech.desc": "IA, software, IoT y videojuegos — la curiosidad también se entrena.",
 
     "descarga.title": "Llévate mi CV",
     "descarga.hint": "Déjame tu correo y descarga el PDF — incluye un código QR de vuelta a esta página.",
@@ -112,7 +115,7 @@ window.I18N = {
 
     "footer.email": "domoedse@gmail.com",
     "footer.github": "github.com/esemede",
-    "footer.note": "Hecho a mano con HTML, CSS y JS — verde como la montaña."
+    "footer.note": "Hecho a mano con HTML, CSS y JS, con ayuda de la IA — verde como la montaña."
   },
 
   en: {
@@ -123,13 +126,13 @@ window.I18N = {
     "nav.contacto": "Contact",
     "nav.cta": "Download CV",
 
-    "hero.kicker": "Tech Lead · Backend & Cloud Developer",
+    "hero.kicker": "Tech Lead · Frontend, Backend & Cloud Developer",
     "hero.name": "Sebastián Moreno",
     "hero.tagline": "I build and lead logistics-optimization digital products on AWS.",
     "hero.scroll": "Scroll to follow my journey",
 
     "resumen.title": "Summary",
-    "resumen.body": "Industrial Mechanical Engineer (Universidad Técnica Federico Santa María) with 10+ years building software across the energy and consumer-goods industries. Today I am Tech Lead of the T2 load optimizer and principal developer of T1 at KOANDINA (Coca-Cola Andina), designing and leading logistics-optimization solutions on AWS serverless architecture. Expert in Python, SQL data modeling and querying, CI/CD and design patterns; my hallmark is clean code with best practices, honest feedback and continuous improvement of processes and user experience.",
+    "resumen.body": "Industrial Mechanical Engineer (Universidad Técnica Federico Santa María) with 10+ years building software across the energy and consumer-goods industries. Today I am Tech Lead of the T2 load optimizer and principal developer of T1 at KOANDINA (Coca-Cola Andina), designing and leading logistics-optimization solutions on AWS serverless architecture. Expert in Python, SQL data modeling and querying, CI/CD and design patterns; my hallmark is clean code with best practices, honest feedback and continuous improvement of processes and user experience. I integrate applied AI into my products and workflows: MCPs, RAG and fine-tuning.",
 
     "roadmap.title": "My roadmap",
     "roadmap.subtitle": "Every bounce, a chapter.",
@@ -186,6 +189,7 @@ window.I18N = {
     "skills.cloud": "Cloud",
     "skills.backend": "Backend",
     "skills.frontend": "Frontend",
+    "skills.ai": "Applied AI",
     "skills.data": "Data",
     "skills.devops": "DevOps",
     "skills.other": "Blockchain & IoT",
@@ -215,6 +219,8 @@ window.I18N = {
     "vida.montana.desc": "Climbing teaches iteration: one steady step at a time.",
     "vida.familia.name": "Family",
     "vida.familia.desc": "The long-term project I care about most.",
+    "vida.tech.name": "Technology",
+    "vida.tech.desc": "AI, software, IoT and video games — curiosity gets trained too.",
 
     "descarga.title": "Take my CV with you",
     "descarga.hint": "Leave your email and download the PDF — it includes a QR code back to this page.",
@@ -227,6 +233,6 @@ window.I18N = {
 
     "footer.email": "domoedse@gmail.com",
     "footer.github": "github.com/esemede",
-    "footer.note": "Handmade with HTML, CSS and JS — green as the mountains."
+    "footer.note": "Handmade with HTML, CSS and JS, with help from AI — green as the mountains."
   }
 };

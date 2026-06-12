@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sebastián Moreno — Líder Técnico · Backend &amp; Cloud</title>
-  <meta name="description" content="CV de Sebastián Moreno: Líder Técnico y Backend & Cloud Developer (AWS, Python). Optimización logística en KOANDINA / Coca-Cola Andina." />
+  <title>Sebastián Moreno — Líder Técnico · Frontend, Backend &amp; Cloud</title>
+  <meta name="description" content="CV de Sebastián Moreno: Líder Técnico y Frontend, Backend & Cloud Developer (AWS, Python, IA aplicada). Optimización logística en KOANDINA / Coca-Cola Andina." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -16,7 +16,7 @@
 <body>
 
   <header class="site-nav">
-    <a class="nav-brand" href="#hero">S<span class="nav-dot">·</span>M</a>
+    <a class="nav-brand" href="#hero">S<span class="nav-dot">·</span>M<span class="nav-dot">·</span>D</a>
     <nav class="nav-links" aria-label="Secciones">
       <a href="#resumen" data-i18n="nav.resumen">Resumen</a>
       <a href="#roadmap" data-i18n="nav.experiencia">Experiencia</a>
@@ -62,6 +62,20 @@
       <h2 class="reveal" data-i18n="roadmap.title">Mi roadmap</h2>
       <p class="section-sub reveal" data-i18n="roadmap.subtitle">Cada bote, una etapa.</p>
       <div class="road">
+        <div class="court" aria-hidden="true">
+          <svg viewBox="0 0 360 780" preserveAspectRatio="none">
+            <!-- cancha de tenis vertical: dobles, singles, cajas de servicio y red al centro -->
+            <rect x="8" y="8" width="344" height="764" />
+            <line x1="50" y1="8" x2="50" y2="772" />
+            <line x1="310" y1="8" x2="310" y2="772" />
+            <line x1="50" y1="212" x2="310" y2="212" />
+            <line x1="50" y1="568" x2="310" y2="568" />
+            <line x1="180" y1="212" x2="180" y2="568" />
+            <line x1="180" y1="8" x2="180" y2="22" />
+            <line x1="180" y1="758" x2="180" y2="772" />
+            <line class="net" x1="0" y1="390" x2="360" y2="390" />
+          </svg>
+        </div>
         <div class="road-line" aria-hidden="true"></div>
         <div class="ball" aria-hidden="true">
           <svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" /><path class="seam" d="M5 6 Q17 17 5 28 M29 6 Q17 17 29 28" /></svg>
@@ -177,6 +191,12 @@
           </div>
         </div>
         <div class="skill-group">
+          <h3 data-i18n="skills.ai">IA aplicada</h3>
+          <div class="chips">
+            <span class="chip">MCP · Model Context Protocol</span><span class="chip">RAG</span><span class="chip">Fine-Tuning</span><span class="chip">LLM APIs</span><span class="chip">AI Agents</span>
+          </div>
+        </div>
+        <div class="skill-group">
           <h3 data-i18n="skills.data">Datos</h3>
           <div class="chips">
             <span class="chip">SQL · PostgreSQL/MySQL</span><span class="chip">DynamoDB</span><span class="chip">Pandas</span><span class="chip">PySpark</span>
@@ -274,6 +294,16 @@
           </svg>
           <h3 data-i18n="vida.familia.name"></h3>
           <p data-i18n="vida.familia.desc"></p>
+        </div>
+        <div class="vida-item">
+          <svg class="vida-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="5" y="15" width="38" height="19" rx="9.5" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M16 20.5 V29 M11.5 24.75 H20.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="32" cy="21.5" r="2" fill="currentColor"/>
+            <circle cx="36.5" cy="27" r="2" fill="currentColor"/>
+          </svg>
+          <h3 data-i18n="vida.tech.name"></h3>
+          <p data-i18n="vida.tech.desc"></p>
         </div>
       </div>
     </div>
