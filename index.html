@@ -8,20 +8,306 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23cce531'/><path d='M4 20 Q16 12 28 20' stroke='white' stroke-width='2' fill='none'/></svg>" />
   <link rel="stylesheet" href="styles.css" />
   <script src="i18n.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="site-nav"></header>
-  <section id="hero" class="sec-dark"></section>
-  <section id="resumen" class="sec-light"></section>
-  <section id="roadmap" class="sec-light"></section>
-  <section id="skills" class="sec-dark"></section>
-  <section id="logros" class="sec-dark"></section>
-  <section id="educacion" class="sec-light"></section>
-  <section id="vida" class="sec-light"></section>
-  <section id="descarga" class="sec-dark"></section>
-  <footer id="contacto" class="sec-dark"></footer>
+
+  <header class="site-nav">
+    <a class="nav-brand" href="#hero">S<span class="nav-dot">·</span>M</a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#resumen" data-i18n="nav.resumen">Resumen</a>
+      <a href="#roadmap" data-i18n="nav.experiencia">Experiencia</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#educacion" data-i18n="nav.educacion">Educación</a>
+      <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-cta" href="#descarga" data-i18n="nav.cta">Descargar CV</a>
+      <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
+    </div>
+  </header>
+
+  <section id="hero" class="sec-dark">
+    <div class="hero-inner">
+      <p class="hero-kicker" data-i18n="hero.kicker">Líder Técnico · Backend &amp; Cloud Developer</p>
+      <h1 class="hero-name" data-i18n="hero.name">Sebastián Moreno</h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">Construyo y lidero productos digitales de optimización logística sobre AWS.</p>
+      <p class="hero-scroll"><span data-i18n="hero.scroll">Desliza para recorrer mi camino</span><span class="hero-arrow" aria-hidden="true">↓</span></p>
+    </div>
+    <div class="mountains" aria-hidden="true">
+      <svg class="m-back" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,320 L0,210 L160,120 L300,200 L470,80 L640,190 L820,60 L990,180 L1150,100 L1300,190 L1440,130 L1440,320 Z" />
+      </svg>
+      <svg class="m-mid" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,320 L0,250 L190,160 L360,240 L540,140 L730,250 L900,150 L1090,240 L1260,170 L1440,230 L1440,320 Z" />
+      </svg>
+      <svg class="m-front" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,320 L0,290 L220,210 L420,280 L630,200 L850,290 L1060,220 L1250,280 L1440,240 L1440,320 Z" />
+      </svg>
+    </div>
+  </section>
+
+  <section id="resumen" class="sec-light">
+    <div class="container narrow reveal">
+      <h2 data-i18n="resumen.title">Resumen</h2>
+      <p class="lead" data-i18n="resumen.body"></p>
+    </div>
+  </section>
+
+  <section id="roadmap" class="sec-light">
+    <div class="container">
+      <h2 class="reveal" data-i18n="roadmap.title">Mi roadmap</h2>
+      <p class="section-sub reveal" data-i18n="roadmap.subtitle">Cada bote, una etapa.</p>
+      <div class="road">
+        <div class="road-line" aria-hidden="true"></div>
+        <div class="ball" aria-hidden="true">
+          <svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" /><path class="seam" d="M5 6 Q17 17 5 28 M29 6 Q17 17 29 28" /></svg>
+        </div>
+        <ol class="milestones">
+          <li class="milestone side-l" id="job1">
+            <article class="card">
+              <p class="period" data-i18n="job1.period"></p>
+              <h3 class="company" data-i18n="job1.company"></h3>
+              <p class="role"><span data-i18n="job1.role"></span> <span class="badge" data-i18n="job1.badge"></span></p>
+              <ul>
+                <li data-i18n="job1.b1"></li>
+                <li data-i18n="job1.b2"></li>
+                <li data-i18n="job1.b3"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-r" id="job2">
+            <article class="card">
+              <p class="period" data-i18n="job2.period"></p>
+              <h3 class="company" data-i18n="job2.company"></h3>
+              <p class="role" data-i18n="job2.role"></p>
+              <ul>
+                <li data-i18n="job2.b1"></li>
+                <li data-i18n="job2.b2"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-l" id="job3">
+            <article class="card">
+              <p class="period" data-i18n="job3.period"></p>
+              <h3 class="company" data-i18n="job3.company"></h3>
+              <p class="role" data-i18n="job3.role"></p>
+              <ul>
+                <li data-i18n="job3.b1"></li>
+                <li data-i18n="job3.b2"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-r" id="job4">
+            <article class="card">
+              <p class="period" data-i18n="job4.period"></p>
+              <h3 class="company" data-i18n="job4.company"></h3>
+              <p class="role" data-i18n="job4.role"></p>
+              <ul>
+                <li data-i18n="job4.b1"></li>
+                <li data-i18n="job4.b2"></li>
+                <li data-i18n="job4.b3"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-l" id="job5">
+            <article class="card">
+              <p class="period" data-i18n="job5.period"></p>
+              <h3 class="company" data-i18n="job5.company"></h3>
+              <p class="role" data-i18n="job5.role"></p>
+              <ul>
+                <li data-i18n="job5.b1"></li>
+                <li data-i18n="job5.b2"></li>
+                <li data-i18n="job5.b3"></li>
+                <li class="award" data-i18n="job5.b4"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-r" id="job6">
+            <article class="card">
+              <p class="period" data-i18n="job6.period"></p>
+              <h3 class="company" data-i18n="job6.company"></h3>
+              <p class="role" data-i18n="job6.role"></p>
+              <ul>
+                <li data-i18n="job6.b1"></li>
+                <li data-i18n="job6.b2"></li>
+                <li class="award" data-i18n="job6.b3"></li>
+              </ul>
+            </article>
+          </li>
+          <li class="milestone side-l" id="job7">
+            <article class="card card-compact">
+              <p class="period" data-i18n="job7.period"></p>
+              <h3 class="company" data-i18n="job7.company"></h3>
+              <p class="role" data-i18n="job7.role"></p>
+              <ul>
+                <li data-i18n="job7.b1"></li>
+                <li data-i18n="job7.b2"></li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="sec-dark">
+    <div class="container reveal">
+      <h2 data-i18n="skills.title">Skills</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3 data-i18n="skills.cloud">Cloud</h3>
+          <div class="chips">
+            <span class="chip">AWS Lambda</span><span class="chip">Step Functions</span><span class="chip">API Gateway</span><span class="chip">RDS</span><span class="chip">DynamoDB</span><span class="chip">Cognito</span><span class="chip">CloudFormation</span><span class="chip">CloudWatch</span><span class="chip">GCP</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="skills.backend">Backend</h3>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Node.js</span><span class="chip">API REST</span><span class="chip">WebSockets</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="skills.frontend">Frontend</h3>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">HTML/CSS</span><span class="chip">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="skills.data">Datos</h3>
+          <div class="chips">
+            <span class="chip">SQL · PostgreSQL/MySQL</span><span class="chip">DynamoDB</span><span class="chip">Pandas</span><span class="chip">PySpark</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="skills.devops">DevOps</h3>
+          <div class="chips">
+            <span class="chip">CI/CD</span><span class="chip">Git</span><span class="chip">Bash</span><span class="chip">Linux</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 data-i18n="skills.other">Blockchain &amp; IoT</h3>
+          <div class="chips">
+            <span class="chip">Smart Contracts</span><span class="chip">EVM</span><span class="chip">MQTT</span><span class="chip">ESP32</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logros" class="sec-dark">
+    <div class="container reveal">
+      <h2 data-i18n="logros.title">Logros</h2>
+      <ul class="award-grid">
+        <li class="award-card">
+          <span class="award-icon" aria-hidden="true">🏆</span>
+          <h3 data-i18n="logros.l1.name"></h3>
+          <p data-i18n="logros.l1.detail"></p>
+        </li>
+        <li class="award-card">
+          <span class="award-icon" aria-hidden="true">🏆</span>
+          <h3 data-i18n="logros.l2.name"></h3>
+          <p data-i18n="logros.l2.detail"></p>
+        </li>
+        <li class="award-card">
+          <span class="award-icon" aria-hidden="true">🏆</span>
+          <h3 data-i18n="logros.l3.name"></h3>
+          <p data-i18n="logros.l3.detail"></p>
+        </li>
+        <li class="award-card">
+          <span class="award-icon" aria-hidden="true">🥈</span>
+          <h3 data-i18n="logros.l4.name"></h3>
+          <p data-i18n="logros.l4.detail"></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="educacion" class="sec-light">
+    <div class="container narrow reveal">
+      <h2 data-i18n="edu.title">Educación e idiomas</h2>
+      <div class="edu-grid">
+        <article class="card edu-card">
+          <p class="period" data-i18n="edu.period"></p>
+          <h3 class="company" data-i18n="edu.degree"></h3>
+          <p class="role" data-i18n="edu.school"></p>
+        </article>
+        <article class="card edu-card">
+          <h3 class="company" data-i18n="edu.langTitle"></h3>
+          <ul class="lang-list">
+            <li data-i18n="edu.lang1"></li>
+            <li data-i18n="edu.lang2"></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="vida" class="sec-light">
+    <div class="container reveal">
+      <h2 data-i18n="vida.title">Más allá del código</h2>
+      <div class="vida-grid">
+        <div class="vida-item">
+          <svg class="vida-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M8 14 Q24 24 8 34 M40 14 Q24 24 40 34" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+          <h3 data-i18n="vida.tenis.name"></h3>
+          <p data-i18n="vida.tenis.desc"></p>
+        </div>
+        <div class="vida-item">
+          <svg class="vida-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M4 40 L18 14 L26 28 L32 20 L44 40 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M14 22 L18 18 L22 22" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+          <h3 data-i18n="vida.montana.name"></h3>
+          <p data-i18n="vida.montana.desc"></p>
+        </div>
+        <div class="vida-item">
+          <svg class="vida-icon" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8 24 L24 10 L40 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M12 22 L12 40 L36 40 L36 22" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M24 40 L24 30 L30 30 L30 40" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          </svg>
+          <h3 data-i18n="vida.familia.name"></h3>
+          <p data-i18n="vida.familia.desc"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="descarga" class="sec-dark">
+    <div class="container narrow reveal">
+      <h2 data-i18n="descarga.title">Llévate mi CV</h2>
+      <p class="section-sub" data-i18n="descarga.hint"></p>
+      <form id="gate-form" novalidate>
+        <input type="email" name="email" required autocomplete="email"
+               data-i18n-attr="placeholder:descarga.placeholder" placeholder="tu@correo.com" />
+        <button type="submit" data-i18n="descarga.button">Desbloquear descarga</button>
+      </form>
+      <p id="gate-error" class="gate-error" hidden data-i18n="descarga.error"></p>
+      <div id="gate-result" hidden>
+        <p class="gate-success" data-i18n="descarga.success"></p>
+        <div class="dl-buttons">
+          <a class="dl-btn" href="assets/cv/CV-Sebastian-Moreno-ES.pdf" download data-i18n="descarga.dlEs">CV en Español (PDF)</a>
+          <a class="dl-btn" href="assets/cv/CV-Sebastian-Moreno-EN.pdf" download data-i18n="descarga.dlEn">CV in English (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacto" class="sec-dark">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="mailto:domoedse@gmail.com" data-i18n="footer.email">domoedse@gmail.com</a>
+        <a href="https://github.com/esemede" rel="me noopener" target="_blank" data-i18n="footer.github">github.com/esemede</a>
+      </div>
+      <p class="footer-note" data-i18n="footer.note"></p>
+    </div>
+  </footer>
+
 </body>
 </html>
