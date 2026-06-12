@@ -33,6 +33,29 @@
   --court-fill: rgba(46, 139, 106, 0.045);
 }
 
+/* En oscuro, las secciones verdes también se profundizan: el cambio
+   de tema es visible en cualquier punto de la página */
+html[data-theme="dark"] .sec-dark {
+  background:
+    repeating-radial-gradient(ellipse 1200px 600px at 80% -10%,
+      transparent 0 56px, rgba(245, 241, 232, 0.02) 56px 58px),
+    linear-gradient(180deg, #0a251d, #071a14);
+}
+
+html[data-theme="dark"] #hero {
+  background:
+    radial-gradient(ellipse 900px 520px at 50% -8%, rgba(46, 139, 106, 0.22), transparent 70%),
+    repeating-radial-gradient(ellipse 1200px 600px at 80% -10%,
+      transparent 0 56px, rgba(245, 241, 232, 0.025) 56px 58px),
+    linear-gradient(180deg, #0c211b 0%, #0a251d 100%);
+}
+
+html[data-theme="dark"] .site-nav { background: rgba(8, 26, 20, 0.78); }
+html[data-theme="dark"] #contacto { background: #081d17; }
+html[data-theme="dark"] .m-back path { fill: #103428; }
+html[data-theme="dark"] .m-mid path { fill: #14442f; }
+html[data-theme="dark"] .m-front path { fill: #0a251d; }
+
 html[data-theme="dark"] {
   --lt-bg: #0f2a22;
   --lt-card: #163c30;
@@ -240,7 +263,32 @@ section { overflow-x: clip; }
 #lang-toggle:hover, #lang-toggle:focus-visible,
 #theme-toggle:hover, #theme-toggle:focus-visible { background: var(--emerald); }
 
-#theme-toggle { padding: 0.42rem 0.7rem; font-size: 0.95rem; line-height: 1; }
+#theme-toggle { padding: 0.42rem 0.6rem; line-height: 0; }
+
+/* Ícono sol/luna que se transforma: luna en modo claro, sol en modo oscuro */
+.theme-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+  transform: rotate(40deg); /* la luna inclinada como creciente */
+  transition: transform 0.55s cubic-bezier(0.45, 0, 0.2, 1.2);
+}
+
+.sun-core { transition: r 0.45s cubic-bezier(0.45, 0, 0.2, 1); }
+
+.mask-circle { transition: cx 0.45s cubic-bezier(0.45, 0, 0.2, 1), cy 0.45s cubic-bezier(0.45, 0, 0.2, 1); }
+
+.sun-rays {
+  transform-origin: 12px 12px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-40deg);
+  transition: opacity 0.3s, transform 0.5s cubic-bezier(0.45, 0, 0.2, 1.2);
+}
+
+html[data-theme="dark"] .theme-icon { transform: rotate(220deg); }
+html[data-theme="dark"] .sun-core { r: 4.6; }
+html[data-theme="dark"] .mask-circle { cx: 28; cy: -4; } /* la sombra sale: luna → sol */
+html[data-theme="dark"] .sun-rays { opacity: 1; transform: scale(1) rotate(0deg); }
 
 /* ---------- Hero ---------- */
 

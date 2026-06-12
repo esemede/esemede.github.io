@@ -24,19 +24,12 @@ applyLang();
 
 /* ---------- Tema claro/oscuro ---------- */
 const isDark = () => document.documentElement.dataset.theme === "dark";
-const themeBtn = document.getElementById("theme-toggle");
 
-function applyThemeBtn() {
-  themeBtn.textContent = isDark() ? "☀" : "☾";
-}
-
-themeBtn.addEventListener("click", () => {
+document.getElementById("theme-toggle").addEventListener("click", () => {
   const next = isDark() ? "light" : "dark";
   document.documentElement.dataset.theme = next;
   localStorage.setItem("cv-theme", next);
-  applyThemeBtn();
 });
-applyThemeBtn();
 
 /* ---------- Animaciones ---------- */
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;

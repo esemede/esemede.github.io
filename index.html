@@ -15,9 +15,9 @@
       localStorage.getItem("cv-theme") ||
       (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   </script>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="i18n.js" defer></script>
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <script src="i18n.js?v=3" defer></script>
+  <script src="app.js?v=3" defer></script>
 </head>
 <body>
 
@@ -32,7 +32,25 @@
     </nav>
     <div class="nav-actions">
       <a class="nav-cta" href="#descarga" data-i18n="nav.cta">Descargar CV</a>
-      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">☾</button>
+      <button id="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">
+        <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <mask id="moon-mask">
+            <rect width="24" height="24" fill="white" />
+            <circle class="mask-circle" cx="17" cy="7" r="7.5" fill="black" />
+          </mask>
+          <circle class="sun-core" cx="12" cy="12" r="7" mask="url(#moon-mask)" fill="currentColor" />
+          <g class="sun-rays" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+            <line x1="12" y1="1.6" x2="12" y2="4.2" />
+            <line x1="12" y1="19.8" x2="12" y2="22.4" />
+            <line x1="1.6" y1="12" x2="4.2" y2="12" />
+            <line x1="19.8" y1="12" x2="22.4" y2="12" />
+            <line x1="4.6" y1="4.6" x2="6.5" y2="6.5" />
+            <line x1="17.5" y1="17.5" x2="19.4" y2="19.4" />
+            <line x1="4.6" y1="19.4" x2="6.5" y2="17.5" />
+            <line x1="17.5" y1="6.5" x2="19.4" y2="4.6" />
+          </g>
+        </svg>
+      </button>
       <button id="lang-toggle" type="button" aria-label="Switch language">EN</button>
     </div>
   </header>
